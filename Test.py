@@ -598,3 +598,4 @@ with open(os.path.join(os.path.dirname(__file__), "Sql_Source_Code"), "r") as so
 print(dataname_hour[1])
 '''
 print('Giang')
+print('Như')
