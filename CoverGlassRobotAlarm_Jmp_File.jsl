@@ -1,0 +1,17 @@
+Close All(Reports, Data Tables , NoSave);
+df = Open( "C:\My Drive\CoverGlassRobot_Alarm_CSV File\CoverGlassRobotAlarm_Csv_File.csv" );
+df << Save( "C:\My Drive\CoverGlassRobot_Alarm_JMP File\CoverGlassRobotAlarm_Csv_File.jmp" );
+Wait( 3 );
+dt = Open( "C:\My Drive\CoverGlassRobot_Alarm_JMP File\CoverGlassRobotAlarm_Csv_File.jmp" );
+report = dt << Graph Builder(
+	Size( 1539, 883 ),
+	Fit to Window( "On" ),
+	Show Control Panel ( 0 ),
+	Variables( X( :LocalTime ), Group Y( :Name ) ),
+	Elements( Smoother( X, Legend( 17 ) ), Points( X, Legend( 18 ) ) ),
+	SendToReport( Dispatch( {}, "graph title", TextEditBox, {Set Text( "" )} ) ),
+);
+report << Save Picture( "C:\My Drive\CoverGlassRobot_Alarm_Image File\CoverGlassRobotAlarm.png", PNG);
+Wait( 3 );
+Close All(Reports, Data Tables , NoSave);
+Quit();

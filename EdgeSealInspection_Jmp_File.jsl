@@ -1,0 +1,49 @@
+Close All(Reports, Data Tables , NoSave);
+df = Open( "C:\My Drive\Edge_Seal_GlassToBead_Inspection_CSV File\EdgeSealInspection_Csv_File.csv" );
+df << save( "C:\My Drive\Edge_Seal_GlassToBead_Inspection_JMP File\EdgeSealInspection_Csv_File.jmp" );
+Wait( 1 );
+dt = Open( "C:\My Drive\Edge_Seal_GlassToBead_Inspection_JMP File\EdgeSealInspection_Csv_File.jmp" );
+report = dt << Graph Builder(
+	Size( 1732, 957 ),
+	Show Control Panel( 0 ),
+	Fit to Window( "On" ),
+	Continuous Color Theme( "White to Orange" ),
+	Categorical Color Theme( "JMP Vibrant" ),
+	Variables(
+		X( :ReadTime ),
+		Y( :GlassToBead1 ),
+		Y( :GlassToBead2, Position( 1 ) ),
+		Y( :GlassToBead3, Position( 1 ) ),
+		Y( :GlassToBead4, Position( 1 ) ),
+		Y( :GlassToBead5, Position( 1 ) ),
+		Y( :GlassToBead6, Position( 1 ) ),
+		Y( :GlassToBead7, Position( 1 ) ),
+		Group Y( :EquipmentName, Show Title( 0 ) )
+	),
+	Elements(
+		Smoother( X, Y( 1 ), Y( 2 ), Y( 3 ), Y( 4 ), Y( 5 ), Y( 6 ), Y( 7 ), Legend( 53 ) ),
+		Points( X, Y( 1 ), Y( 2 ), Y( 3 ), Y( 4 ), Y( 5 ), Y( 6 ), Y( 7 ), Legend( 54 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"GlassToBead1",
+			ScaleBox,
+			{Min( 0 ), Max( 3 ), Inc( 0.25 ), Minor Ticks( 0 ), Add Ref Line(
+				0.75,
+				"Solid",
+				"Medium Dark Red",
+				"LCL 0.75",
+				2
+			), Add Ref Line( 2.25, "Solid", "Medium Dark Red", "UCL 2.25", 2 )}
+		),
+		Dispatch( {}, "graph title", TextEditBox, {Set Text( "Glass To Bead In Time" )} ),
+		Dispatch( {}, "X title", TextEditBox, {Set Text( "Time" )} ),
+		Dispatch( {}, "Y title", TextEditBox, {Set Text( "Glass To Bead" )} )
+	)
+);
+
+report << Save Picture( "C:\My Drive\Edge_Seal_GlassToBead_Inspection_Image File\EdgeSealInspection.png", PNG);
+Wait( 1 );
+Close All(Reports, Data Tables , NoSave);
+Quit();

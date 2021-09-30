@@ -1,0 +1,6 @@
+EdgeSealInspection_CSVFile = __Drive_Folder__\Edge_Seal_GlassToBead_Inspection_CSV File;
+EdgeSealInspection_IMGFile = __Drive_Folder__\Edge_Seal_GlassToBead_Inspection_Image File;
+EdgeSealInspection_JMPFile = __Drive_Folder__\Edge_Seal_GlassToBead_Inspection_JMP File;
+CoverGlassRobotAlarm_CSVFile = __Drive_Folder__\CoverGlassRobot_Alarm_CSV File;
+CoverGlassRobotAlarm_IMGFile = __Drive_Folder__\CoverGlassRobot_Alarm_Image File;
+CoverGlassRobotAlarm_JMPFile = __Drive_Folder__\CoverGlassRobot_Alarm_JMP File;
