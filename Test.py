@@ -596,14 +596,4 @@ with open(os.path.join(os.path.dirname(__file__), "Sql_Source_Code"), "r") as so
         if len(_) > 0
     }
 print(dataname_hour[1])
-
-def change():
-    for i in range(5):
-        if i == 2:
-            k = 2
-            print(k)
-        elif i == 3:
-            k = 3
-            print(k)
-change()
 '''
