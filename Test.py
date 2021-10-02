@@ -18,10 +18,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import WebDriverException
 
 '''
-string = 'Giang'
-s = f'{string} va Hanh Dung'
-print(s)
-
 path = '/Giang/Tien/Dung/Như'
 s1 = os.path.dirname(path)
 s2 = os.path.basename(path)
